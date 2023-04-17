@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Changed</Text>
+      <Text>Chantgnrged</Text>
       <StatusBar style="auto" />
     </View>
   );
