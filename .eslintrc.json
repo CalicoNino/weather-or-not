@@ -15,6 +15,7 @@
     "project": "tsconfig.json"
   },
   "rules": {
-    "react/style-prop-object": "off"
+    "react/style-prop-object": "off",
+    "@typescript-eslint/quotes": "off"
   }
 }
