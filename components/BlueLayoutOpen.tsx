@@ -4,16 +4,21 @@ import { LinearGradient } from "expo-linear-gradient";
 import Icon from "react-native-vector-icons/Ionicons";
 import Divider from "./Divider";
 import WeatherDetails from "./WeatherDetails";
+import Drag from "./Drag";
 
 const styles = StyleSheet.create({
-  blue: {
+  container: {
     borderBottomRightRadius: 90,
     borderBottomLeftRadius: 90,
     width: "100%",
     height: "70%",
+  },
+  blue: {
+    borderBottomRightRadius: 90,
+    borderBottomLeftRadius: 90,
+    width: "100%",
+    height: "100%",
     alignItems: "center",
-    borderWidth: 5,
-    borderColor: "#ffffff",
     marginBottom: 5,
   },
   text: {
@@ -64,29 +69,39 @@ function BlueLayoutOpen({
   precipitation,
 }: BlueLayoutProps) {
   return (
-    <LinearGradient
-      colors={[
-        "#60bcf4",
-        "#50ace3",
-        // "#4c9ce4",
-        // "#4a85da",
-        "#3264ec",
-        "#3264ec",
-      ]}
-      style={styles.blue}
-    >
-      <Text style={styles.text}>{isUpdating ? "Updated" : "🟡 Updating"}</Text>
-      <Icon name="cloudy-night" color="white" size={120} style={styles.icon} />
-      <Text style={styles.temperature}>{`${temperature}°`}</Text>
-      <Text style={styles.description}>{description}</Text>
-      <Text style={styles.date}>{date}</Text>
-      <Divider />
-      <WeatherDetails
-        wind={wind}
-        humidity={humidity}
-        precipitation={precipitation}
-      />
-    </LinearGradient>
+    <View style={styles.container}>
+      <LinearGradient
+        colors={[
+          "#60bcf4",
+          "#50ace3",
+          // "#4c9ce4",
+          // "#4a85da",
+          "#3264ec",
+          "#3264ec",
+        ]}
+        style={styles.blue}
+      >
+        <Text style={styles.text}>
+          {isUpdating ? "Updated" : "🟡 Updating"}
+        </Text>
+        <Icon
+          name="cloudy-night"
+          color="white"
+          size={120}
+          style={styles.icon}
+        />
+        <Text style={styles.temperature}>{`${temperature}°`}</Text>
+        <Text style={styles.description}>{description}</Text>
+        <Text style={styles.date}>{date}</Text>
+        <Divider />
+        <WeatherDetails
+          wind={wind}
+          humidity={humidity}
+          precipitation={precipitation}
+        />
+        <Drag />
+      </LinearGradient>
+    </View>
   );
 }
 
