@@ -16,4 +16,4 @@ export const hours = [
   { temperature: 23, time: "15:00" },
 ];
 
-export const data = {};
+export const location = "Toronto";

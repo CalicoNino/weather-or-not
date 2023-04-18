@@ -5,6 +5,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import HomeScreen from "./screens/Home";
 import RootStackParamList from "./screens/RootStackParamList";
 import Title from "./components/Title";
+import { location } from "./__mocks__";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -16,7 +17,7 @@ function App() {
           name="Home"
           component={HomeScreen}
           options={{
-            headerTitle: () => <Title location="Minsk" />,
+            headerTitle: () => <Title location={location} />,
             headerStyle: {
               backgroundColor: "#60bcf4",
             },
