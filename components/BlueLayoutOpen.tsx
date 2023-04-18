@@ -4,7 +4,6 @@ import { LinearGradient } from "expo-linear-gradient";
 import Icon from "react-native-vector-icons/Ionicons";
 import Divider from "./Divider";
 import WeatherDetails from "./WeatherDetails";
-import Drag from "./Drag";
 
 const styles = StyleSheet.create({
   container: {
@@ -99,7 +98,6 @@ function BlueLayoutOpen({
           humidity={humidity}
           precipitation={precipitation}
         />
-        <Drag />
       </LinearGradient>
     </View>
   );
