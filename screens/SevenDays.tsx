@@ -2,7 +2,6 @@ import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View, Text, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import { useNavigation } from "@react-navigation/native";
 import BlueLayoutOpen from "../components/BlueLayoutOpen";
 import HourWeather from "../components/HourWeather";
 import { hours } from "../__mocks__";
@@ -31,16 +30,14 @@ const styles = StyleSheet.create({
   },
 });
 
-function HomeScreen() {
-  const navigation = useNavigation();
-
+function SevenDayScreen() {
   return (
     <View style={styles.container}>
       <BlueLayoutOpen
         isUpdating={false}
-        temperature={34}
-        description="Thunderstorm"
-        date="Monday, 17 May"
+        temperature={50}
+        description="Sunny"
+        date="Thursday, May 4th"
         wind={13}
         humidity={24}
         precipitation={87}
@@ -62,7 +59,6 @@ function HomeScreen() {
             color="white"
             size={15}
             style={styles.icon}
-            onPress={() => navigation.navigate("SevenDays")}
           />
         </View>
       </View>
@@ -90,4 +86,4 @@ function HomeScreen() {
   );
 }
 
-export default HomeScreen;
+export default SevenDayScreen;
