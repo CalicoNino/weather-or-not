@@ -1,7 +1,10 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text, ScrollView } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
 import BlueLayoutOpen from "../components/BlueLayoutOpen";
+import HourWeather from "../components/HourWeather";
+import { hours } from "../__mocks__";
 
 const styles = StyleSheet.create({
   container: {
@@ -10,49 +13,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "column",
   },
-  blue: {
-    borderBottomRightRadius: 90,
-    borderBottomLeftRadius: 90,
-    width: "100%",
-    height: "70%",
-    alignItems: "center",
-    borderWidth: 5,
-    borderColor: "#ffffff",
-    marginBottom: 5,
-    shadowColor: "#ffffff",
-    shadowOpacity: 80,
-    shadowRadius: 2,
-    shadowOffset: {
-      height: 1,
-      width: 0,
-    },
-  },
-  text: {
-    color: "#ffffff",
-    borderWidth: 1,
-    borderColor: "#ffffff",
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderRadius: 10,
-    fontSize: 10,
-  },
-  cloud: {
-    width: "40%",
-    height: "30%",
-    backgroundColor: "red",
-    margin: 10,
-  },
-  temperature: {
-    color: "#ffffff",
-    fontSize: 100,
+  title: {
+    color: "white",
     fontWeight: "bold",
-  },
-  description: {
-    color: "#ffffff",
     fontSize: 20,
   },
-  date: {
-    color: "#ffffff",
+  subtitle: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 15,
+  },
+  icon: {
+    color: "white",
+    fontWeight: "bold",
     fontSize: 15,
   },
 });
@@ -69,6 +42,45 @@ function HomeScreen() {
         humidity={24}
         precipitation={87}
       />
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          width: "75%",
+          marginVertical: 15,
+        }}
+      >
+        <Text style={styles.title}>Today</Text>
+        <View style={{ flexDirection: "row" }}>
+          <Text style={styles.subtitle}>7 Days</Text>
+          <Icon
+            name="chevron-forward-outline"
+            color="white"
+            size={15}
+            style={styles.icon}
+          />
+        </View>
+      </View>
+
+      <ScrollView
+        horizontal
+        style={{
+          width: "100%",
+          marginVertical: 15,
+          overflow: "visible",
+        }}
+      >
+        {hours.map(({ temperature, time, selected }) => (
+          <HourWeather
+            key={time}
+            temperature={temperature}
+            time={time}
+            selected={selected}
+          />
+        ))}
+      </ScrollView>
+
       <StatusBar style="auto" />
     </View>
   );

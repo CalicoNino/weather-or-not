@@ -17,6 +17,7 @@
   "rules": {
     "react/style-prop-object": "off",
     "react/no-unstable-nested-components": "off",
-    "@typescript-eslint/quotes": "off"
+    "@typescript-eslint/quotes": "off",
+    "object-curly-newline": "off"
   }
 }

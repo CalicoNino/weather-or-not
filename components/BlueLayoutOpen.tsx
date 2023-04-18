@@ -74,8 +74,8 @@ function BlueLayoutOpen({
         colors={[
           "#60bcf4",
           "#50ace3",
-          // "#4c9ce4",
-          // "#4a85da",
+          "#4c9ce4",
+          "#4a85da",
           "#3264ec",
           "#3264ec",
         ]}
