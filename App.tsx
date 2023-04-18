@@ -7,6 +7,7 @@ import SevenDayScreen from "./screens/SevenDays";
 import RootStackParamList from "./screens/RootStackParamList";
 import Title from "./components/Title";
 import { location } from "./__mocks__";
+import SevenDaysTitle from "./components/SevenDaysTitle";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -50,7 +51,7 @@ function App() {
           name="SevenDays"
           component={SevenDayScreen}
           options={{
-            headerTitle: () => <Title location={location} />,
+            headerTitle: () => <SevenDaysTitle />,
             headerStyle: {
               backgroundColor: "#60bcf4",
             },
@@ -59,15 +60,6 @@ function App() {
               fontWeight: "bold",
             },
             headerShadowVisible: false, // applied here
-            headerBackTitleVisible: false,
-            headerLeft: () => (
-              <Icon
-                name="list-circle-outline"
-                color="white"
-                size={30}
-                onPress={() => alert("This is a button!")}
-              />
-            ),
             headerRight: () => (
               <Icon
                 name="ellipsis-vertical"
