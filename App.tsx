@@ -1,21 +1,52 @@
 import React from "react";
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Icon from "react-native-vector-icons/Ionicons";
+import HomeScreen from "./screens/Home";
+import RootStackParamList from "./screens/RootStackParamList";
+import Title from "./components/Title";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
-export default function App() {
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Chantgnrged</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            headerTitle: () => <Title location="Minsk" />,
+            headerStyle: {
+              backgroundColor: "#60bcf4",
+            },
+            headerTintColor: "white",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+            headerShadowVisible: false, // applied here
+            headerBackTitleVisible: false,
+            headerLeft: () => (
+              <Icon
+                name="list-circle-outline"
+                color="white"
+                size={30}
+                onPress={() => alert("This is a button!")}
+              />
+            ),
+            headerRight: () => (
+              <Icon
+                name="ellipsis-vertical"
+                color="white"
+                size={20}
+                onPress={() => alert("This is a button!")}
+              />
+            ),
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
+
+export default App;

@@ -16,6 +16,7 @@
   },
   "rules": {
     "react/style-prop-object": "off",
+    "react/no-unstable-nested-components": "off",
     "@typescript-eslint/quotes": "off"
   }
 }
