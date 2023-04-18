@@ -19,11 +19,9 @@ type TitleProps = {
 
 function Title({ location }: TitleProps) {
   return (
-    <View>
-      <View style={styles.container}>
-        <Icon name="location" color="white" size={20} style={styles.icon} />
-        <Text style={styles.text}>{location}</Text>
-      </View>
+    <View style={styles.container}>
+      <Icon name="location" color="white" size={20} style={styles.icon} />
+      <Text style={styles.text}>{location}</Text>
     </View>
   );
 }

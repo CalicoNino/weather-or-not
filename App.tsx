@@ -24,6 +24,8 @@ function App() {
             headerTitleStyle: {
               fontWeight: "bold",
             },
+            headerShadowVisible: false, // applied here
+            headerBackTitleVisible: false,
             headerLeft: () => (
               <Icon
                 name="list-circle-outline"
