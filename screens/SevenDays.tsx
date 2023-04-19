@@ -46,10 +46,12 @@ function SevenDayScreen() {
           width: "100%",
           marginVertical: 15,
           overflow: "visible",
+          flexDirection: "column",
         }}
       >
         {sevenDayForecast.map(({ day, forecast, temperature }) => (
           <SevenDayForecast
+            key={day}
             day={day}
             forecast={forecast}
             temperature={temperature}
