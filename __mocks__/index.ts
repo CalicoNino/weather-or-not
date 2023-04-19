@@ -17,13 +17,13 @@ export const hours = [
 ];
 
 export const sevenDayForecast = [
-  { day: "Monday", forecast: "Sunny", temperature: 23 },
-  { day: "Tuesday", forecast: "Raining", temperature: 20 },
-  { day: "Wednesday", forecast: "Cloudy", temperature: 20 },
-  { day: "Thursday", forecast: "Raining", temperature: 20 },
-  { day: "Friday", forecast: "Raining", temperature: 20 },
-  { day: "Saturday", forecast: "Raining", temperature: 20 },
-  { day: "Sunday", forecast: "Raining", temperature: 40 },
+  { day: "Mon", forecast: "Sunny", temperature: 23 },
+  { day: "Tue", forecast: "Raining", temperature: 20 },
+  { day: "Wed", forecast: "Cloudy", temperature: 20 },
+  { day: "Thu", forecast: "Raining", temperature: 20 },
+  { day: "Fri", forecast: "Raining", temperature: 20 },
+  { day: "Sat", forecast: "Raining", temperature: 20 },
+  { day: "Sun", forecast: "Raining", temperature: 40 },
 ];
 
 export const location = "Toronto";
