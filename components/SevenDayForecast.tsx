@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginHorizontal: 5,
     alignContent: "center",
-    height: 75,
+    height: 60,
   },
   temperature: {
     color: "white",
