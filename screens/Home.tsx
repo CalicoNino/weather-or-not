@@ -1,6 +1,12 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Text, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 import BlueLayoutOpen from "../components/BlueLayoutOpen";
@@ -22,12 +28,12 @@ const styles = StyleSheet.create({
   subtitle: {
     color: "white",
     fontWeight: "bold",
-    fontSize: 15,
+    fontSize: 10,
   },
   icon: {
     color: "white",
     fontWeight: "bold",
-    fontSize: 15,
+    fontSize: 10,
   },
 });
 
@@ -37,7 +43,6 @@ function HomeScreen() {
   return (
     <View style={styles.container}>
       <BlueLayoutOpen
-        isUpdating={false}
         temperature={34}
         description="Thunderstorm"
         date="Monday, 17 May"
@@ -50,28 +55,31 @@ function HomeScreen() {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
-          width: "75%",
+          width: "87%",
+          paddingTop: 15,
           marginVertical: 15,
         }}
       >
         <Text style={styles.title}>Today</Text>
-        <View style={{ flexDirection: "row" }}>
+        <TouchableOpacity
+          style={{ flexDirection: "row" }}
+          onPress={() => navigation.navigate("SevenDays")}
+        >
           <Text style={styles.subtitle}>7 Days</Text>
           <Icon
             name="chevron-forward-outline"
             color="white"
             size={15}
             style={styles.icon}
-            onPress={() => navigation.navigate("SevenDays")}
           />
-        </View>
+        </TouchableOpacity>
       </View>
 
       <ScrollView
         horizontal
         style={{
           width: "100%",
-          marginVertical: 15,
+          marginVertical: 20,
           overflow: "visible",
         }}
       >

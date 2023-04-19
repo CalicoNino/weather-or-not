@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 90,
     borderBottomLeftRadius: 90,
     width: "100%",
-    height: "70%",
+    height: "65%",
   },
   blue: {
     borderBottomRightRadius: 90,
@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     alignItems: "center",
-    marginBottom: 5,
   },
   text: {
     color: "#ffffff",
@@ -49,7 +48,6 @@ const styles = StyleSheet.create({
 });
 
 type BlueLayoutProps = {
-  isUpdating: boolean;
   temperature: number;
   description: string;
   date: string;
@@ -59,7 +57,6 @@ type BlueLayoutProps = {
 };
 
 function BlueLayoutOpen({
-  isUpdating,
   temperature,
   description,
   date,
@@ -80,9 +77,6 @@ function BlueLayoutOpen({
         ]}
         style={styles.blue}
       >
-        <Text style={styles.text}>
-          {isUpdating ? "Updated" : "🟡 Updating"}
-        </Text>
         <Icon
           name="cloudy-night"
           color="white"

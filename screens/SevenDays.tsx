@@ -3,7 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
 import BlueLayoutMinimized from "../components/BlueLayoutMinimized";
 import SevenDayForecast from "../components/SevenDayForecast";
-import { sevenDayForecast } from "../__mocks__";
+import { location, sevenDayForecast } from "../__mocks__";
 
 const styles = StyleSheet.create({
   container: {
@@ -33,7 +33,7 @@ function SevenDayScreen() {
   return (
     <View style={styles.container}>
       <BlueLayoutMinimized
-        isUpdating={false}
+        city={location}
         wind={13}
         humidity={24}
         precipitation={87}

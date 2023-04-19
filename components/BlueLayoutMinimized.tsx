@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 90,
     borderBottomLeftRadius: 90,
     width: "100%",
-    height: "40%",
+    height: "41%",
   },
   blue: {
     borderBottomRightRadius: 90,
@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     alignItems: "center",
-    marginBottom: 5,
   },
   text: {
     color: "#ffffff",
@@ -61,14 +60,14 @@ const styles = StyleSheet.create({
 });
 
 type BlueLayoutProps = {
-  isUpdating: boolean;
+  city: string;
   wind: number;
   humidity: number;
   precipitation: number;
 };
 
 function BlueLayoutMinimized({
-  isUpdating,
+  city,
   wind,
   humidity,
   precipitation,
@@ -87,7 +86,8 @@ function BlueLayoutMinimized({
         style={styles.blue}
       >
         <Text style={styles.text}>
-          {isUpdating ? "Updated" : "🟡 Updating"}
+          <Icon name="location" color="white" size={10} />
+          {city}
         </Text>
         <View
           style={{

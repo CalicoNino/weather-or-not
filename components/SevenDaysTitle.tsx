@@ -1,7 +1,6 @@
 import React from "react";
 import Icon from "react-native-vector-icons/Ionicons";
 import { StyleSheet, Text, View } from "react-native";
-import { location } from "../__mocks__";
 
 const styles = StyleSheet.create({
   container: {
@@ -23,10 +22,7 @@ function SevenDaysTitle() {
         size={20}
         style={styles.icon}
       />
-      <Text style={styles.text}>
-        7 Days -
-        {location}
-      </Text>
+      <Text style={styles.text}>7 Days</Text>
     </View>
   );
 }
