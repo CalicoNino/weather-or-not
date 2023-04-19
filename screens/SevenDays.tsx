@@ -2,6 +2,8 @@ import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
 import BlueLayoutMinimized from "../components/BlueLayoutMinimized";
+import SevenDayForecast from "../components/SevenDayForecast";
+import { sevenDayForecast } from "../__mocks__";
 
 const styles = StyleSheet.create({
   container: {
@@ -38,6 +40,22 @@ function SevenDayScreen() {
       />
 
       <StatusBar style="auto" />
+
+      <View
+        style={{
+          width: "100%",
+          marginVertical: 15,
+          overflow: "visible",
+        }}
+      >
+        {sevenDayForecast.map(({ day, forecast, temperature }) => (
+          <SevenDayForecast
+            day={day}
+            forecast={forecast}
+            temperature={temperature}
+          />
+        ))}
+      </View>
     </View>
   );
 }
