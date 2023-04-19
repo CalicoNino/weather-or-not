@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   },
   temperature: {
     color: "#ffffff",
-    fontSize: 50,
+    fontSize: 60,
     fontWeight: "bold",
   },
   description: {
@@ -49,12 +49,13 @@ const styles = StyleSheet.create({
   window: {
     textAlignVertical: "center",
     flexDirection: "column",
-    borderColor: "white",
-    borderWidth: 5,
-    borderRadius: 5,
   },
   day: {
-    fontSize: 30,
+    fontSize: 25,
+    color: "#ffffff",
+  },
+  forecast: {
+    fontSize: 15,
     color: "#ffffff",
   },
 });
@@ -106,8 +107,8 @@ function BlueLayoutMinimized({
           <View style={styles.window}>
             <Text style={styles.day}>Tomorrow</Text>
             <Text style={styles.temperature}>{`${20}/${17}°`}</Text>
+            <Text style={styles.forecast}>Rainy - Cloudy</Text>
           </View>
-          {/* <Text style={styles.day}>Tomorrow</Text> */}
         </View>
         <Divider />
         <WeatherDetails
