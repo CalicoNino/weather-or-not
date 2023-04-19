@@ -29,22 +29,6 @@ function App() {
             },
             headerShadowVisible: false, // applied here
             headerBackTitleVisible: false,
-            headerLeft: () => (
-              <Icon
-                name="list-circle-outline"
-                color="white"
-                size={30}
-                onPress={() => alert("This is a button!")}
-              />
-            ),
-            headerRight: () => (
-              <Icon
-                name="ellipsis-vertical"
-                color="white"
-                size={20}
-                onPress={() => alert("This is a button!")}
-              />
-            ),
           }}
         />
         <Stack.Screen
@@ -60,14 +44,6 @@ function App() {
               fontWeight: "bold",
             },
             headerShadowVisible: false, // applied here
-            headerRight: () => (
-              <Icon
-                name="ellipsis-vertical"
-                color="white"
-                size={20}
-                onPress={() => alert("This is a button!")}
-              />
-            ),
           }}
         />
       </Stack.Navigator>

@@ -95,18 +95,24 @@ function BlueLayoutMinimized({
             alignItems: "center",
             justifyContent: "space-between",
             width: "75%",
-            marginVertical: 5,
+            paddingTop: 20,
           }}
         >
-          <Icon
-            name="cloudy-night"
-            color="white"
-            size={75}
-            style={styles.icon}
-          />
+          <Icon name="cloudy-night" color="white" size={110} />
           <View style={styles.window}>
             <Text style={styles.day}>Tomorrow</Text>
-            <Text style={styles.temperature}>{`${20}/${17}°`}</Text>
+            <View style={{ flexDirection: "row" }}>
+              <Text style={styles.temperature}>{`${20}`}</Text>
+              <Text
+                style={{
+                  color: "#ffffff",
+                  fontSize: 35,
+                }}
+              >
+                {`/${17}°`}
+              </Text>
+            </View>
+
             <Text style={styles.forecast}>Rainy - Cloudy</Text>
           </View>
         </View>

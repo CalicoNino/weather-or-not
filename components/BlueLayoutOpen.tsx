@@ -29,12 +29,12 @@ const styles = StyleSheet.create({
     fontSize: 10,
   },
   icon: {
-    marginTop: 30,
-    marginBottom: 20,
+    marginTop: 10,
+    marginBottom: 10,
   },
   temperature: {
     color: "#ffffff",
-    fontSize: 100,
+    fontSize: 80,
     fontWeight: "bold",
   },
   description: {
@@ -80,7 +80,7 @@ function BlueLayoutOpen({
         <Icon
           name="cloudy-night"
           color="white"
-          size={120}
+          size={160}
           style={styles.icon}
         />
         <Text style={styles.temperature}>{`${temperature}°`}</Text>
