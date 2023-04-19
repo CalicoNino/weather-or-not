@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import Icon from "react-native-vector-icons/Ionicons";
 import Divider from "./Divider";
 import WeatherDetails from "./WeatherDetails";
 
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
   },
   temperature: {
     color: "#ffffff",
-    fontSize: 100,
+    fontSize: 50,
     fontWeight: "bold",
   },
   description: {
@@ -44,6 +45,17 @@ const styles = StyleSheet.create({
   date: {
     color: "#ffffff",
     fontSize: 15,
+  },
+  window: {
+    textAlignVertical: "center",
+    flexDirection: "column",
+    borderColor: "white",
+    borderWidth: 5,
+    borderRadius: 5,
+  },
+  day: {
+    fontSize: 30,
+    color: "#ffffff",
   },
 });
 
@@ -76,6 +88,27 @@ function BlueLayoutMinimized({
         <Text style={styles.text}>
           {isUpdating ? "Updated" : "🟡 Updating"}
         </Text>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            width: "75%",
+            marginVertical: 5,
+          }}
+        >
+          <Icon
+            name="cloudy-night"
+            color="white"
+            size={75}
+            style={styles.icon}
+          />
+          <View style={styles.window}>
+            <Text style={styles.day}>Tomorrow</Text>
+            <Text style={styles.temperature}>{`${20}/${17}°`}</Text>
+          </View>
+          {/* <Text style={styles.day}>Tomorrow</Text> */}
+        </View>
         <Divider />
         <WeatherDetails
           wind={wind}
