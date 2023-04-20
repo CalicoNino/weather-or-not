@@ -1,7 +1,14 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, Text, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
+import { useNavigation } from "@react-navigation/native";
 import BlueLayoutOpen from "../components/BlueLayoutOpen";
 import HourWeather from "../components/HourWeather";
 import { hours } from "../__mocks__";
@@ -21,23 +28,64 @@ const styles = StyleSheet.create({
   subtitle: {
     color: "white",
     fontWeight: "bold",
-    fontSize: 15,
+    fontSize: 10,
   },
   icon: {
     color: "white",
     fontWeight: "bold",
-    fontSize: 15,
+    fontSize: 10,
   },
 });
 
+type DateInfo = {
+  dayOfWeek: string;
+  day: number;
+  month: string;
+};
+
+function getCurrentDate(): DateInfo {
+  const date: Date = new Date();
+  const daysOfWeek: string[] = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const dayOfWeek: string = daysOfWeek[date.getDay()];
+  const monthArr: string[] = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const month: string = monthArr[date.getMonth()];
+  const day: number = date.getDate();
+
+  return { dayOfWeek, day, month };
+}
+
+const currentDate: DateInfo = getCurrentDate();
+
 function HomeScreen() {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <BlueLayoutOpen
-        isUpdating={false}
         temperature={34}
         description="Thunderstorm"
-        date="Monday, 17 May"
+        date={`${currentDate.dayOfWeek}, ${currentDate.day} ${currentDate.month}`}
         wind={13}
         humidity={24}
         precipitation={87}
@@ -47,12 +95,16 @@ function HomeScreen() {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "space-between",
-          width: "75%",
+          width: "87%",
+          paddingTop: 15,
           marginVertical: 15,
         }}
       >
         <Text style={styles.title}>Today</Text>
-        <View style={{ flexDirection: "row" }}>
+        <TouchableOpacity
+          style={{ flexDirection: "row" }}
+          onPress={() => navigation.navigate("SevenDays")}
+        >
           <Text style={styles.subtitle}>7 Days</Text>
           <Icon
             name="chevron-forward-outline"
@@ -60,14 +112,14 @@ function HomeScreen() {
             size={15}
             style={styles.icon}
           />
-        </View>
+        </TouchableOpacity>
       </View>
 
       <ScrollView
         horizontal
         style={{
           width: "100%",
-          marginVertical: 15,
+          marginVertical: 20,
           overflow: "visible",
         }}
       >

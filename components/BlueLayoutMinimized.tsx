@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 90,
     borderBottomLeftRadius: 90,
     width: "100%",
-    height: "65%",
+    height: "41%",
   },
   blue: {
     borderBottomRightRadius: 90,
@@ -29,37 +29,45 @@ const styles = StyleSheet.create({
     fontSize: 10,
   },
   icon: {
-    marginTop: 10,
-    marginBottom: 10,
+    marginTop: 30,
+    marginBottom: 20,
   },
   temperature: {
     color: "#ffffff",
-    fontSize: 80,
+    fontSize: 60,
     fontWeight: "bold",
   },
   description: {
     color: "#ffffff",
-    fontSize: 25,
+    fontSize: 20,
   },
   date: {
     color: "#ffffff",
     fontSize: 15,
   },
+  window: {
+    textAlignVertical: "center",
+    flexDirection: "column",
+  },
+  day: {
+    fontSize: 25,
+    color: "#ffffff",
+  },
+  forecast: {
+    fontSize: 15,
+    color: "#ffffff",
+  },
 });
 
 type BlueLayoutProps = {
-  temperature: number;
-  description: string;
-  date: string;
+  city: string;
   wind: number;
   humidity: number;
   precipitation: number;
 };
 
-function BlueLayoutOpen({
-  temperature,
-  description,
-  date,
+function BlueLayoutMinimized({
+  city,
   wind,
   humidity,
   precipitation,
@@ -77,15 +85,37 @@ function BlueLayoutOpen({
         ]}
         style={styles.blue}
       >
-        <Icon
-          name="cloudy-night"
-          color="white"
-          size={160}
-          style={styles.icon}
-        />
-        <Text style={styles.temperature}>{`${temperature}°`}</Text>
-        <Text style={styles.description}>{description}</Text>
-        <Text style={styles.date}>{date}</Text>
+        <Text style={styles.text}>
+          <Icon name="location" color="white" size={10} />
+          {city}
+        </Text>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            width: "75%",
+            paddingTop: 20,
+          }}
+        >
+          <Icon name="cloudy-night" color="white" size={110} />
+          <View style={styles.window}>
+            <Text style={styles.day}>Tomorrow</Text>
+            <View style={{ flexDirection: "row" }}>
+              <Text style={styles.temperature}>{`${20}`}</Text>
+              <Text
+                style={{
+                  color: "#ffffff",
+                  fontSize: 35,
+                }}
+              >
+                {`/${17}°`}
+              </Text>
+            </View>
+
+            <Text style={styles.forecast}>Rainy - Cloudy</Text>
+          </View>
+        </View>
         <Divider />
         <WeatherDetails
           wind={wind}
@@ -97,4 +127,4 @@ function BlueLayoutOpen({
   );
 }
 
-export default BlueLayoutOpen;
+export default BlueLayoutMinimized;

@@ -16,4 +16,14 @@ export const hours = [
   { temperature: 23, time: "15:00" },
 ];
 
+export const sevenDayForecast = [
+  { day: "Mon", forecast: "Sunny", temperature: 23 },
+  { day: "Tue", forecast: "Raining", temperature: 20 },
+  { day: "Wed", forecast: "Cloudy", temperature: 20 },
+  { day: "Thu", forecast: "Raining", temperature: 20 },
+  { day: "Fri", forecast: "Raining", temperature: 20 },
+  { day: "Sat", forecast: "Raining", temperature: 20 },
+  { day: "Sun", forecast: "Raining", temperature: 40 },
+];
+
 export const location = "Toronto";
