@@ -37,6 +37,46 @@ const styles = StyleSheet.create({
   },
 });
 
+type DateInfo = {
+  dayOfWeek: string;
+  day: number;
+  month: string;
+};
+
+function getCurrentDate(): DateInfo {
+  const date: Date = new Date();
+  const daysOfWeek: string[] = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const dayOfWeek: string = daysOfWeek[date.getDay()];
+  const monthArr: string[] = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const month: string = monthArr[date.getMonth()];
+  const day: number = date.getDate();
+
+  return { dayOfWeek, day, month };
+}
+
+const currentDate: DateInfo = getCurrentDate();
+
 function HomeScreen() {
   const navigation = useNavigation();
 
@@ -45,7 +85,7 @@ function HomeScreen() {
       <BlueLayoutOpen
         temperature={34}
         description="Thunderstorm"
-        date="Monday, 17 May"
+        date={`${currentDate.dayOfWeek}, ${currentDate.day} ${currentDate.month}`}
         wind={13}
         humidity={24}
         precipitation={87}
